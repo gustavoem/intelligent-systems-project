@@ -10,8 +10,22 @@ class CategorizerViewTest(BaseAPITest):
                 {"title": "mordedores para bebês"}
             ]
         }
-        result = self.app_client.post("/v1/categorize", json=payload)
-        categories = result.json.get("categories")
+        response = self.app_client.post("/v1/categorize", json=payload)
+        categories = response.json.get("categories")
         self.assertTrue(len(categories) == 2)
         for category in categories:
             self.assertIn(category, KNOWN_CATEGORIES)
+
+    def tests_bad_request_payloads(self):
+        no_products_payload = {"products": []}
+        response = self.app_client.post("v1/categorize",
+                json=no_products_payload)
+        self.assertTrue(response.status_code, 400)
+
+        invalid_product_payload = {"products": [
+            {"invalid_field": "crazy value"}
+        ]}
+        response = self.app_client.post("v1/categorize",
+                json=no_products_payload)
+        self.assertTrue(response.status_code, 400)
+

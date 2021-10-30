@@ -5,6 +5,7 @@ import unittest
 from categorizer import get_categorizer
 from constants import KNOWN_CATEGORIES
 
+
 class CategorizerTest(unittest.TestCase):
 
     def tests_categorizer_returns_a_known_category(self):
@@ -17,6 +18,3 @@ class CategorizerTest(unittest.TestCase):
         inferred_category = categorizer(sample_product)
         self.assertIn(inferred_category, KNOWN_CATEGORIES)
 
-
-if __name__ == '__main__':
-    unittest.main ()

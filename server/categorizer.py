@@ -7,6 +7,24 @@ class ModelFileNotFound(Exception):
     pass
 
 
+def load_pickled_classifier():
+    model_path = os.environ.get("MODEL_PATH")
+    if model_path is None:
+        raise ModelFileNotFound("Could not find model file")
+
+    model = None
+    with open(model_path, "rb") as model_file:
+        model = pickle.load(model_file)
+
+    return model
+
+
+# We are concerned about not loading this model from disk in every
+# request that calls get_categorizer, so this is an attempt to have this
+# object loaded in memory when this module gets imported.
+pickled_classifier = load_pickled_classifier()
+
+
 # copied code from training.
 # I'm sure I could have isolated this as a module, but I'm copying and
 # pasting for simplicity
@@ -35,13 +53,5 @@ def get_wrapped_model(model):
 
 
 def get_categorizer():
-    model_path = os.environ.get("MODEL_PATH")
-    if model_path is None:
-        raise ModelFileNotFound("Could not find model file")
-    
-    model = None
-    with open(model_path, "rb") as model_file:
-        model = pickle.load(model_file)
-    
-    return get_wrapped_model(model)
+    return get_wrapped_model(pickled_classifier)
 

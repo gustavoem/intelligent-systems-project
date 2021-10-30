@@ -13,3 +13,4 @@ class BaseAPITest(unittest.TestCase):
 
     def setUp(self):
         self.app_client = app_client()
+
