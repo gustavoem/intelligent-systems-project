@@ -34,7 +34,7 @@ def get_wrapped_model(model):
     return wrapped_model
 
 
-def get_model():
+def get_categorizer():
     model_path = os.environ.get("MODEL_PATH")
     if model_path is None:
         raise ModelFileNotFound("Could not find model file")
