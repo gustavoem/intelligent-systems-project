@@ -10,7 +10,7 @@ More info about the data can be found [here][1].
 
 ## Training Pipeline
 
-Your training pipeline should be composed of the following steps:
+The training pipeline is composed of the following steps:
 
 1. **Data extraction** <br>
    Loads a dataset with product data from a specified path available in the
@@ -33,14 +33,8 @@ Your training pipeline should be composed of the following steps:
 
 ## Implementation
 
-The training pipeline should be implemented using [JupyterLab][2] in a file
+The training pipeline is implemented using [JupyterLab][2] in a file
 named `trainer.ipynb`.
-
-Use [Markdown cells][3] to document **relevant** details about your
-implementation. Remember that good documentation should focus on the **why**
-(e.g., why a specific type of model was chosen), since clean code should be
-enough to understand the **how** (e.g., how you selected a specific type of
-model).
 
 ## Infrastructure
 
@@ -62,27 +56,9 @@ To install an OS package (Debian-based), add the name of the package in the file
 `packages.txt`. To intall a Python package (Pip-based), add the name and version
 of the package in the file `requirements.txt`.
 
-## Evaluation
-
-The evaluation will be based on four criteria:
-
-1. **Correctness** <br>
-   If the solution runs without unexpected errors.
-
-2. **Compliance** <br>
-   If the solution respects all specified behaviors, in particular concerning
-   inputs and outputs.
-
-2. **Code Quality** <br>
-   If the solution follows the principles of [clean code][6] and general good
-   practices discussed in class.
-
-3. **Documentation** <br>
-   If the solution documents **relevant** decisions in the right measure.
 
 [1]: ../data/README.md
 [2]: https://jupyter.org
 [3]: https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html
 [4]: https://docs.docker.com/get-docker
 [5]: https://docs.docker.com/compose/install
-[6]: https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
