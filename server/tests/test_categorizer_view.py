@@ -16,6 +16,7 @@ class CategorizerViewTest(BaseAPITest):
         for category in categories:
             self.assertIn(category, KNOWN_CATEGORIES)
 
+
     def tests_bad_request_payloads(self):
         no_products_payload = {"products": []}
         response = self.app_client.post("v1/categorize",

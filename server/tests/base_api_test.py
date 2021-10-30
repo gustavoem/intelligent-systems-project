@@ -5,7 +5,7 @@ import unittest
 from api import create_app
 
 def app_client():
-    app = create_app()
+    app = create_app(is_testing=True)
     return app.test_client()
 
 
