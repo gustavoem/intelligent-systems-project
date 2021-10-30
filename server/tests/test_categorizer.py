@@ -2,11 +2,11 @@ import sys
 sys.path.insert (0, '..')
 
 import unittest
-from categorizer import get_categorizer
+from categorizer_service import get_categorizer
 from constants import KNOWN_CATEGORIES
 
 
-class CategorizerTest(unittest.TestCase):
+class CategorizerServiceTest(unittest.TestCase):
 
     def tests_categorizer_returns_a_known_category(self):
         categorizer = get_categorizer()

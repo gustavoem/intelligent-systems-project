@@ -4,10 +4,11 @@ from flask_expects_json import expects_json
 import json
 
 import schemas
-from categorizer import get_categorizer
+import categorizer_service
 
 
 categorizer_view = Blueprint('categorizer_view', __name__)
+
 
 @categorizer_view.route("/v1/categorize", methods=["POST"])
 @expects_json(schemas.CATEGORIZE_PRODUCT)
@@ -15,7 +16,7 @@ def categorize_product():
     request_body = flask.request.json
     products = request_body["products"]
     
-    categorizer_function = get_categorizer()
+    categorizer_function = categorizer_service.get_categorizer()
     categories = [
         categorizer_function(product)
         for product in products
