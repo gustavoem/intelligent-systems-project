@@ -11,7 +11,7 @@ class CategorizerViewTest(BaseAPITest):
             ]
         }
         result = self.app_client.post("/v1/categorize", json=payload)
-        categories = result.json
+        categories = result.json.get("categories")
         self.assertTrue(len(categories) == 2)
         for category in categories:
-            self.assertIn(category, KNWON_CATEGORIES)
+            self.assertIn(category, KNOWN_CATEGORIES)
