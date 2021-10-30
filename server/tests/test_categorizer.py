@@ -5,7 +5,7 @@ import unittest
 from categorizer import get_categorizer
 from constants import KNOWN_CATEGORIES
 
-class ModelTest(unittest.TestCase):
+class CategorizerTest(unittest.TestCase):
 
     def tests_categorizer_returns_a_known_category(self):
         categorizer = get_categorizer()
