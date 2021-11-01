@@ -1,15 +1,28 @@
-# Development of Intelligent Computer Systems
+# Running the training notebook
 
-Project for the course "Development of Intelligent Computer Systems" at IME-USP.
+- go to the trainig folder
+```
+cd training
+```
 
-**Clone this repo** and submit your solution as instructed in class.
+- build and run the docker container
+```
+docker-compose up --build
+```
 
-In the first part of this project, we will create the **training pipeline** for
-a **categorization model**. More instructions are available [here][1].
+# Running the server
+- go to the server folder
+```
+cd server
+```
 
-In the second part of this project, we will create an **API** for the
-**categorization model** developed previously. More instructions are
-available [here][2].
+- build and run the docker container
+```
+docker-compose up --build
+```
 
-[1]: ./training/README.md
-[2]: ./server/README.md
+Server should be up on `http://172.18.0.3:5000/`.
+You can make POST request to `/v1/categorize`. More instructions
+available on [server README][1]
+
+-[1]: ./server/README.md
